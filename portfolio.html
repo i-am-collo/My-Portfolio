@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body {
+    font-family: 'Poppins', sans-serif;
+    background: url(ckk\ background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    }
+    nav {
+    width: 100%;
+    padding: 20px;
+      position: fixed;
+      top: 0;
+      background: #111;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      color: #00ffcc;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #00ffcc;
+    }
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 40px 40px;
+      background: linear-gradient(to bottom, #1a1a1a, #000);
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .intro-text {
+      flex: 1;
+    }
+    .intro-text h1 {
+      font-size: 3rem;
+      color: #00ffcc;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .animated-man {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      position: relative;
+    }
+
+    .animated-man img {
+      max-width: 350px;
+      width: 100%;
+      border-radius: 50%;
+      animation: float 4s ease-in-out infinite;
+      filter: brightness(0.9) drop-shadow(0 0 10px #00ffccaa);
+    }
+
+    .animated-man::after {
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      width: 80px;
+      height: 20px;
+      background: #00ffcc55;
+      border-radius: 50%;
+      filter: blur(8px);
+      z-index: -1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #00ffcc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title i {
+      font-size: 1.5rem;
+      color: #00ffcc;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00ffcc;
+    }
+    .resume-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #00ffcc;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+    .resume-button:hover {
+      background: #00ccaa;
+    }
+
+    .certificates-scroll {
+      overflow-x: auto;
+      display: flex;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+      padding: 20px 0;
+    }
+
+    .certificates-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cert-card {
+      flex: 0 0 auto;
+      width: 300px;
+      background: #111;
+      border-radius: 10px;
+      padding: 20px;
+      scroll-snap-align: start;
+      transition: transform 0.3s ease;
+    }
+
+    .cert-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .cert-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00ffcc;
+    }
+
+    .video-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .video-section iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 340px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .intro-text h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">MyPortfolio</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="intro-text" data-aos="fade-right">
+      <h1 id="animated-text">Hi, I'm Collins Kiplimo a Software Developer</h1>
+    </div>
+    <div class="animated-man" data-aos="fade-left">
+      <img src="47f1c7bb-a5ee-4e3b-a91f-803b6710908b.jpg" alt="Animated Man">
+    </div>
+  </header>
+
+  <section id="about" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
+    <p>I am a passionate software developer with experience in building clean and user-friendly web interfaces. I enjoy solving real-world problems through code and design.</p>
+    <a href="resume.pdf" class="resume-button" download>Download Resume</a>
+  </section>
+
+  <!-- Certificate Scroll Section -->
+  <section id="certificates" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-certificate"></i> Certificates</h2>
+    <div class="certificates-scroll">
+      <div class="cert-card">
+        <img src="Screenshot 2025-05-24 101010.png" alt="Certificate 1">
+        <h4>Power Bi</h4>
+      </div>
+      <div class="cert-card">
+        <img src="https://via.placeholder.com/300x180?text=Certificate+2" alt="Certificate 2">
+        <h4>React Developer</h4>
+      </div>
+      <div class="cert-card">
+        <img src="https://via.placeholder.com/300x180?text=Certificate+3" alt="Certificate 3">
+        <h4>UI/UX Design</h4>
+      </div>
+      <div class="cert-card">
+        <img src="https://via.placeholder.com/300x180?text=Certificate+4" alt="Certificate 4">
+        <h4>Python Programming</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-tools"></i> Skills</h2>
+    <div class="grid">
+      <div class="card">HTML/CSS</div>
+      <div class="card">JavaScript</div>
+      <div class="card">Python</div>
+      <div class="card">C</div>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-folder-open"></i> Projects</h2>
+    <div class="grid">
+      <div class="card">Project One<br><small>Short description</small></div>
+      <div class="card">Project Two<br><small>Short description</small></div>
+      <div class="card">Project Three<br><small>Short description</small></div>
+    </div>
+    <div class="video-section" data-aos="fade-up">
+      <h3 style="color: #00ffcc;">Video Showcase</h3>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-envelope"></i> Contact</h2>
+    <p>Email: iamcollolimo@gmail.com<br>Instagram: @in_my_p.r.ime</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Collins Kiplimo. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const text = "Hi, I'm  Collins Kiplimo a Software Developer";
+    let index = 0;
+    const animatedText = document.getElementById("animated-text");
+
+    function typeEffect() {
+      if (index < text.length) {
+        animatedText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 100);
+      }
+    }
+
+    animatedText.textContent = "";
+    typeEffect();
+
+    window.addEventListener("scroll", () => {
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll("nav ul li a");
+
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
